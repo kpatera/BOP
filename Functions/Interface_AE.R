@@ -1,0 +1,11 @@
+div(style="display:inline-block;width:45%",
+    numericInput("reflevel",
+                 label = "Reference (general population) event rate:",
+                 value = ref_val,
+                 min = 0.01,
+                 max = 10000,step = 10),
+  numericInput("conflevel",
+             label = "95% confidence lower limit of the reference rate:",
+             value = conf_val,
+             min = 0.01,
+             max = 10000,step = 10))
