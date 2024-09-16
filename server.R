@@ -87,6 +87,7 @@ shinyServer(function(input, output, session) {
         axis(1, at=1:N,labels=(Table_input[,3]),lty="solid", col.axis="black", las=2)
         lines(1:N,AE_out$`Level 2 (Reference rate)`,lty="solid",type = "l",col="orange",lwd=4)
         lines(1:N,AE_out$`Level 3 (Lower rate)`,lty="solid",type = "l",col="red",lwd=4)
+        legend(c("Level 3: Higher rarity","Level 2: Reference","Level 1: Lower rarity"),col=c("red","orange","yellow",lty=1))
       }
       if(compareT=="Yes"){
         plot(1:N,AE_out$`Level 1 (Higher rate)`,lty="dashed",type = "l",col="yellow",ylim=c(0,1),
@@ -99,6 +100,7 @@ shinyServer(function(input, output, session) {
         lines(1:N,AE_out_vague$`Level 1 (Higher rate)`,type = "l",col="yellow",lwd=4)
         lines(1:N,AE_out_vague$`Level 2 (Reference rate)`,type = "l",col="orange",lwd=4)
         lines(1:N,AE_out_vague$`Level 3 (Lower rate)`,type = "l",col="red",lwd=4)
+        legend(c("Level 3: Higher rarity","Level 2: Reference","Level 1: Lower rarity"),col=c("red","orange","yellow",lty=1))
       }
       
     }else{
@@ -108,7 +110,8 @@ shinyServer(function(input, output, session) {
       axis(1, at=1:N,labels=(Table_input[,3]), col.axis="black", las=2)
       lines(1:N,AE_out$`Level 2 (Reference rate)`,lty="dashed",type = "l",col="orange",lwd=4)
       lines(1:N,AE_out$`Level 3 (Lower rate)`,lty="dashed",type = "l",col="red",lwd=4)
-
+      legend(c("Level 3: Higher rarity","Level 2: Reference","Level 1: Lower rarity"),col=c("red","orange","yellow",lty=1))
+      
       #abline(a=0.5,b=0,lty=4,lwd=5,col="gray")
       grid(NA,5,lwd=2)
       
@@ -255,15 +258,15 @@ shinyServer(function(input, output, session) {
   output$reflevel <- renderUI({
     if(input$Indata1 == "Example_ErythemaM"){
       ref_val<<-0.7
-      conf_val<<-0.7/4
+      conf_val<<-0.7/8
       }
     if(input$Indata1 == "Example_Myocarditis"){
       ref_val<<-1.555
-      conf_val<<-0.11
+      conf_val<<-0.3
     }
     if(input$Indata1 == "Example_MIS"){
       ref_val<<-0.51
-      conf_val<<-0.51/4
+      conf_val<<-0.51/8
     }
     div(style="display:inline-block;width:100%",
         numericInput("reflevel",

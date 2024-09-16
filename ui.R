@@ -13,7 +13,7 @@ shinyUI(
                                    selected = "Demos")),
                    uiOutput("datasets"),
                    hr(),
-                   h4("Benchmark general population level: (input for example '0.32' events per 100.000 cases for Myocarditis)"),
+                   h4("Benchmark general population level: (input for example '0.7' events per 100.000 cases for Erythema)"),
                    uiOutput("reflevel"),
                    hr(),
                    h4("Benchmark relative levels"),
